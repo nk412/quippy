@@ -7,8 +7,8 @@
     |_|       |_|   |_|    |___/ 
 
 ```
-**quip**
-*/kwip/*
+**quip**<br>
+*/kwip/*<br>
 A quick, witty remark
 
 Quickly fetch code snippets, text and URLs from the CLI.
