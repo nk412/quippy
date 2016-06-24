@@ -13,6 +13,10 @@ A quick, witty remark
 
 Quickly fetch code snippets, text and URLs from the CLI.
 
+## NOTE
+
+This was developed and currently only works on a Mac.
+
 ## Requirements
 
 This project makes use of [pyfzf](http://www.github.com/nk412/pyfzf) which requires [fzf](http://www.github.com/junegunn/fzf) to be installed and available on the PATH.
