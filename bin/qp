@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+val="$( python ${PROJECT_ROOT}/../quippy/quippy.py )"
+if [[ $val == http* ]]; then
+    open $val
+else
+    echo -n "$val" | pbcopy
+fi
