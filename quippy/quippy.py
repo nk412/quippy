@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from pyfzf import FzfPrompt
+from pyfzf.pyfzf import FzfPrompt
 import os
 import yaml
+import sys
 
 def main():
     project_dir = os.path.dirname(os.path.realpath(__file__))
@@ -12,14 +13,14 @@ def main():
         with open(snippet_file, 'a') as f:
             f.write('"foo": "bar"')
 
-    snippets = yaml.load(open(snippet_file))
+    snippets = yaml.load(open(snippet_file), Loader=yaml.FullLoader)
     if not snippets:
         raise SystemError("No keys found in {0}".format(snippet_file))
 
     fzf = FzfPrompt()
 
     key = fzf.prompt(snippets.keys())
-    print snippets.get(key[0].decode('utf-8'))
+    sys.stdout.write(snippets.get(key[0]))
 
 
 if __name__ == '__main__':
