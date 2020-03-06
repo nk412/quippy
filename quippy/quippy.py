@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from pyfzf.pyfzf import FzfPrompt
+import pyperclip
 import os
 import yaml
 import sys
@@ -11,7 +9,7 @@ def main():
     snippet_file = os.path.join(os.getenv("HOME"), ".quippy.yaml")
     if not os.path.isfile(snippet_file):
         with open(snippet_file, 'a') as f:
-            f.write('"foo": "bar"')
+            f.write('"I\'m a sample key": "and I\'m a sample value"')
 
     snippets = yaml.load(open(snippet_file), Loader=yaml.FullLoader)
     if not snippets:
@@ -20,7 +18,7 @@ def main():
     fzf = FzfPrompt()
 
     key = fzf.prompt(snippets.keys())
-    sys.stdout.write(snippets.get(key[0]))
+    pyperclip.copy(snippets.get(key[0]))
 
 
 if __name__ == '__main__':
